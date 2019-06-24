@@ -1,0 +1,30 @@
+.pagination {
+  display: flex;
+  list-style: none;
+  width: fit-content;
+  margin: auto;
+
+  li {
+    margin: 0 10px;
+    border: 1px solid $red;
+    border-radius: 2px;
+    cursor: pointer;
+    color: black;
+    min-width: 20px;
+    text-align: center;
+    padding: 5px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    font-weight: bold;
+
+    &:hover {
+      background-color: $red;
+      color: white;
+    }
+
+    &.active {
+      background-color: $red;
+      color: white;
+    }
+  }
+}

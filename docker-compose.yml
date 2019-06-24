@@ -1,0 +1,25 @@
+version: '3.7'
+
+services:
+  server:
+    build:
+      context: ./server
+      dockerfile: ./Dockerfile
+    command: [sh, -c, "cd /app/server && npm run start"]
+    volumes:
+      - ./server:/app/server/:delegated
+      - ./server/node_modules:/app/server/node_modules:delegated
+    ports:
+      - 4000:4000
+  client:
+    build:
+      context: ./client
+      dockerfile: ./Dockerfile
+    command: [sh, -c, "cd /app/web && npm rebuild node-sass && npm run start"]
+    volumes:
+      - ./client:/app/web/:delegated
+      - ./client/node_modules:/app/web/node_modules:delegated
+    ports:
+      - 3000:3000
+    depends_on:
+      - server

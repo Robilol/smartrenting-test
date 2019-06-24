@@ -1,0 +1,14 @@
+@import "character";
+@import "pagination";
+
+.character-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+
+  li {
+    display: inline-block;
+    margin: 20px;
+  }
+}
